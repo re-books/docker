@@ -1,2 +1,2 @@
 [webservers]
-server.example.org ansible_user=me
+server.example.org ansible_user=ubuntu
