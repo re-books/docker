@@ -1,0 +1,5 @@
+- hosts: webservers
+
+  tasks:
+    - name: What is your hostname ?
+      command: hostname
