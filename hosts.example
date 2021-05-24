@@ -1,2 +1,0 @@
-[webservers]
-server.example.org ansible_user=ubuntu

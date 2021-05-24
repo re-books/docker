@@ -1,5 +1,5 @@
-# Playbook d'installation de docker
+# Playbook d'installation de docker en local
 
 ```
-ansible-playbook -i hosts playbook.yml
+ansible-playbook playbook.yml
 ```

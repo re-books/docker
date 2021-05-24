@@ -1,7 +1,8 @@
 ---
 
-- name: Setup docker
-  hosts: webservers
+- name: Setup docker on localhost
+  hosts: localhost
+  connection: local
   become: yes
 
   tasks:
@@ -19,12 +20,12 @@
 
     - name: Add Docker GPG apt Key
       apt_key:
-        url: https://download.docker.com/linux/ubuntu/gpg
+        url: https://download.docker.com/linux/debian/gpg
         state: present
 
     - name: Add Docker Repository
       apt_repository:
-        repo: deb https://download.docker.com/linux/ubuntu focal stable
+        repo: deb https://download.docker.com/linux/debian buster stable
         state: present
 
     - name: Update apt and install docker-ce
@@ -46,6 +47,6 @@
 
     - name: Add user to docker group
       user:
-        name: ubuntu
+        name: "{{ ansible_user }}"
         groups: docker
         append: yes
