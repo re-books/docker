@@ -10,6 +10,7 @@
           'apt-transport-https', 
           'ca-certificates',
           'software-properties-common',
+          'python3-pip',
         ]
         state: present
 
@@ -32,6 +33,10 @@
         ]
         state: latest
         update_cache: yes
+
+    - name: Add the Python client for Docker
+      pip:
+        name: docker-py
 
     - name: Install docker-compose
       get_url:
