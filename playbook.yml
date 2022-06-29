@@ -13,6 +13,7 @@
           'python3-pip',
         ]
         state: present
+        update_cache: yes
 
     - name: Add Docker GPG apt Key
       apt_key:
@@ -24,12 +25,12 @@
         repo: "deb [arch=amd64] https://download.docker.com/{{ ansible_system | lower }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} stable"
         state: present
 
-    - name: Update apt and install docker-ce
+    - name: Update apt and install Docker
       apt: 
         name: [
-         'docker-ce',
-         'docker-ce-cli',
-         'containerd.io',
+          'docker-ce',
+          'docker-ce-cli',
+          'containerd.io',
         ]
         state: latest
         update_cache: yes
@@ -48,4 +49,4 @@
     - name: Add user to docker group
       user:
         name: "{{ user }}"
-        group: docker
+        groups: docker
